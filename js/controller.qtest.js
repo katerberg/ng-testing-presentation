@@ -24,4 +24,13 @@ test('stood up correctly', function(){
     ok(scope);
 });
 
+test('selectOption selects option correctly', function(){
+    var input = {'some': 'value'};
+
+    scope.selectOption(input);
+
+    ok(scope.selectedOption === input);
+});
+
+
 })(angular);

@@ -17,6 +17,16 @@ describe('TestCtrl', function() {
         it('is defined', function() {
             expect(scope).toBeDefined();
         });
+
+        describe('#selectOption()', function() {
+            it('populates selectedOption', function() {
+                var input = {'some': 'item'};
+
+                scope.selectOption(input);
+
+                expect(scope.selectedOption).toBe(input);
+            });
+        });
     });
 });
 })(angular);
