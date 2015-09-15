@@ -20,11 +20,11 @@ var init = {
 
 module('TestCtrl', init);
 
-test('stood up correctly', function(){
+test('stood up correctly', function() {
     ok(scope);
 });
 
-test('selectOption selects option correctly', function(){
+test('selectOption selects option correctly', function() {
     var input = {'some': 'value'};
 
     scope.selectOption(input);

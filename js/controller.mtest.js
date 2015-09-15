@@ -7,7 +7,7 @@ describe('TestCtrl', function() {
 
     describe('after start up', function() {
         beforeEach(inject(function($controller, $rootScope) {
-            scope = $rootScope.$new()
+            scope = $rootScope.$new();
             $controller('TestCtrl', {
                 $scope: scope
             });
@@ -16,7 +16,7 @@ describe('TestCtrl', function() {
 
         it('is defined', function() {
             should.exist(scope);
-        })
+        });
 
         describe('#selectOption()', function() {
             it('populates selectedOption', function() {
