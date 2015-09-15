@@ -1,12 +1,12 @@
 module.exports = function(config) {
   config.set({
-    frameworks: ['jasmine'],
+    frameworks: ['qunit'],
 
     files: [
       'bower_components/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'js/controller.js',
-      'js/**/*.jtest.js'
+      'js/**/*.qtest.js'
     ],
 
     exclude: [],
