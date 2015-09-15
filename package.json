@@ -1,14 +1,21 @@
 {
   "devDependencies": {
     "angular-mocks": "^1.4.5",
+    "chai": "^3.2.0",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
+    "karma-chai": "^0.1.0",
     "karma-jasmine": "^0.3.6",
+    "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-qunit": "^0.1.5",
+    "karma-sinon-chai": "^1.1.0",
+    "mocha": "^2.3.2",
     "phantomjs": "^1.9.18",
     "qunit": "^0.7.6",
     "qunit-phantomjs-runner": "^2.1.0",
-    "qunitjs": "^1.19.0"
+    "qunitjs": "^1.19.0",
+    "sinon": "^1.16.1",
+    "sinon-chai": "^2.8.0"
   }
 }
