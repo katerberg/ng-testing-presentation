@@ -28,5 +28,12 @@ test('selectOption selects option correctly', function() {
     strictEqual(scope.selectedOption, input, 'item was not selected');
 });
 
+test('selectOption gives A grade with 94 percent', function() {
+
+    scope.selectOption(94);
+
+    equal(scope.grade, 'A', 'Gave incorrect grade for 94%');
+});
+
 
 })(angular);

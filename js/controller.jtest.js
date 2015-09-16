@@ -26,6 +26,12 @@ describe('TestCtrl', function() {
 
                 expect(scope.selectedOption).toBe(input);
             });
+            
+            it('gives A grade with 94 percent', function() {
+                scope.selectOption(94);
+
+                expect(scope.grade).toEqual('A');
+            });
         });
     });
 });
