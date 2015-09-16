@@ -1,10 +1,6 @@
 (function(angular) {
 'use strict';
 
-test('my test', function() {
-    ok('foo');
-});
-
 var injector = angular.injector(['ng', 'testApp']);
 var scope;
 
@@ -29,7 +25,7 @@ test('selectOption selects option correctly', function() {
 
     scope.selectOption(input);
 
-    ok(scope.selectedOption === input);
+    strictEqual(scope.selectedOption, input, 'item was not selected');
 });
 
 

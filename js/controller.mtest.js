@@ -24,7 +24,7 @@ describe('TestCtrl', function() {
 
                 scope.selectOption(input);
 
-                scope.selectedOption.should.be(input);
+                scope.selectedOption.should.equal(input);
             });
         });
     });
