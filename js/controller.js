@@ -25,7 +25,7 @@ angular.module('testApp')
 angular.module('testApp')
 .factory('testService', [function() {
     function getMessageFromOption(option) {
-        if (option >= 94) {
+        if (option >= 95) {
             return 'A';
         }
         return 'F';
