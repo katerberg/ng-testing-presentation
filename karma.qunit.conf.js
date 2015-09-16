@@ -5,6 +5,7 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/sinon/pkg/sinon.js',
       'js/controller.js',
       'js/**/*.qtest.js'
     ],

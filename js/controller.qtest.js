@@ -2,15 +2,19 @@
 'use strict';
 
 var injector = angular.injector(['ng', 'testApp']);
-var scope;
+var scope,
+    testService;
 
 var init = {
     setup: function() {
         scope = injector.get('$rootScope').$new();
+        testService = injector.get('testService');
         var $controller = injector.get('$controller');
         $controller('TestCtrl', {
             $scope: scope
         });
+
+        testService.getMessageFromOption = sinon.stub();
     }
 };
 
@@ -31,6 +35,7 @@ test('selectOption selects option correctly', function() {
 test('selectOption gives grade from service', function() {
     var input = 94,
         expected = 'A';
+    testService.getMessageFromOption.withArgs(input).returns(expected);
 
     scope.selectOption(input);
 

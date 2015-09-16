@@ -1,13 +1,15 @@
 (function(angular) {
 'use strict';
 describe('TestCtrl', function() {
-    var scope;
+    var scope,
+        testService;
 
     beforeEach(module('testApp'));
 
     describe('after start up', function() {
-        beforeEach(inject(function($controller, $rootScope) {
+        beforeEach(inject(function($controller, $rootScope, _testService_) {
             scope = $rootScope.$new();
+            testService = _testService_;
             $controller('TestCtrl', {
                 $scope: scope
             });
@@ -19,6 +21,10 @@ describe('TestCtrl', function() {
         });
 
         describe('#selectOption()', function() {
+            beforeEach(function() {
+                spyOn(testService, 'getMessageFromOption');
+            });
+
             it('populates selectedOption', function() {
                 var input = {'some': 'item'};
 
@@ -28,9 +34,14 @@ describe('TestCtrl', function() {
             });
             
             it('gives grade from service', function() {
-                scope.selectOption(94);
+                var input = 'some input',
+                    expected = 'some message';
+                testService.getMessageFromOption.and.returnValue(expected);
 
-                expect(scope.grade).toEqual('A');
+                scope.selectOption(input);
+
+                expect(testService.getMessageFromOption).toHaveBeenCalledWith(input);
+                expect(scope.grade).toEqual(expected);
             });
         });
     });
