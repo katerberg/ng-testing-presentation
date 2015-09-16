@@ -28,11 +28,13 @@ test('selectOption selects option correctly', function() {
     strictEqual(scope.selectedOption, input, 'item was not selected');
 });
 
-test('selectOption gives A grade with 94 percent', function() {
+test('selectOption gives grade from service', function() {
+    var input = 94,
+        expected = 'A';
 
-    scope.selectOption(94);
+    scope.selectOption(input);
 
-    equal(scope.grade, 'A', 'Gave incorrect grade for 94%');
+    equal(scope.grade, expected, 'Did not display grade');
 });
 
 
