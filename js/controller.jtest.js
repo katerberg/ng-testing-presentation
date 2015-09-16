@@ -47,3 +47,38 @@ describe('TestCtrl', function() {
     });
 });
 })(angular);
+
+(function(angular) {
+'use strict';
+describe('testService', function() {
+    var instance;
+
+    beforeEach(module('testApp'));
+
+    beforeEach(inject(function(_testService_) {
+        instance = _testService_;
+    }));
+
+    it('is defined', function() {
+        expect(instance).toBeDefined();
+    });
+
+    describe('#getMessageFromOption()', function() {
+        it('gives A for 100%', function() {
+            expect(instance.getMessageFromOption(100)).toEqual('A');
+        });
+
+        it('gives A for 95%', function() {
+            expect(instance.getMessageFromOption(95)).toEqual('A');
+        });
+
+        it('gives F for 94%', function() {
+            expect(instance.getMessageFromOption(94)).toEqual('F');
+        });
+
+        it('gives F for 0%', function() {
+            expect(instance.getMessageFromOption(0)).toEqual('F');
+        });
+    });
+});
+})(angular);

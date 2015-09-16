@@ -5,8 +5,8 @@ var injector = angular.injector(['ng', 'testApp']);
 var scope,
     testService;
 
-var init = {
-    setup: function() {
+var testCtrlInit = {
+    beforeEach: function() {
         scope = injector.get('$rootScope').$new();
         testService = injector.get('testService');
         var $controller = injector.get('$controller');
@@ -18,7 +18,7 @@ var init = {
     }
 };
 
-module('TestCtrl', init);
+module('TestCtrl', testCtrlInit);
 
 test('stood up correctly', function() {
     ok(scope);
@@ -41,6 +41,32 @@ test('selectOption gives grade from service', function() {
 
     equal(scope.grade, expected, 'Did not display grade');
 });
+})(angular);
 
+(function(angular) {
+'use strict';
+
+var injector = angular.injector(['ng', 'testApp']);
+
+var instance;
+
+var testServiceInit = {
+    setup: function() {
+        instance = injector.get('testService');
+    }
+};
+
+module('testService', testServiceInit);
+
+test('stood up correctly', function() {
+    ok(instance);
+});
+
+test('getMessageFromOption gives correct grades', function() {
+    equal(instance.getMessageFromOption(100), 'A', 'Incorrect grade for 100%');
+    equal(instance.getMessageFromOption(95), 'A', 'Incorrect grade for 95%');
+    equal(instance.getMessageFromOption(94), 'F', 'Incorrect grade for 94%');
+    equal(instance.getMessageFromOption(0), 'F', 'Incorrect grade for 0%');
+});
 
 })(angular);

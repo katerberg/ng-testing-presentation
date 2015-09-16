@@ -47,3 +47,40 @@ describe('TestCtrl', function() {
     });
 });
 })(angular);
+
+(function(angular) {
+'use strict';
+describe('testService', function() {
+    var instance;
+
+    beforeEach(module('testApp'));
+
+    describe('after start up', function() {
+        beforeEach(inject(function(_testService_) {
+            instance = _testService_;
+        }));
+
+        it('is defined', function() {
+            should.exist(instance);
+        });
+    });
+
+    describe('#getMessageFromOption()', function() {
+        it('gives A for 100%', function() {
+            instance.getMessageFromOption(100).should.equal('A');
+        });
+
+        it('gives A for 95%', function() {
+            instance.getMessageFromOption(95).should.equal('A');
+        });
+
+        it('gives F for 94%', function() {
+            instance.getMessageFromOption(94).should.equal('F');
+        });
+
+        it('gives F for 0%', function() {
+            instance.getMessageFromOption(0).should.equal('F');
+        });
+    });
+});
+})(angular);
